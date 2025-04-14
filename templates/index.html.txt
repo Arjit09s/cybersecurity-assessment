@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Cybersecurity Assessment</title>
+</head>
+<body>
+    <h1>Cybersecurity Assessment Tool</h1>
+    <form method="post">
+        <label for="assessment">Select Assessment Type:</label>
+        <select name="assessment" id="assessment">
+            <option value="application">Application</option>
+            <option value="infrastructure">Infrastructure</option>
+            <option value="third-party">Third-party</option>
+            <option value="compliance">Compliance</option>
+        </select>
+        <button type="submit">Run Assessment</button>
+    </form>
+
+    {% if result %}
+        <h2>Assessment Results:</h2>
+        <ul>
+            {% for key, value in result.items() %}
+                <li><strong>{{ key }}:</strong> {{ value }}</li>
+            {% endfor %}
+        </ul>
+    {% endif %}
+</body>
+</html>
